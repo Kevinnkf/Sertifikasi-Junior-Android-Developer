@@ -6,12 +6,12 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.net.Uri
 
-class PemilihDBHelper (context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION){
+class PemilihDBHelper (context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     //SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION){
 
-    companion object{
+    companion object {
         private const val DATABASE_NAME = "LegalScope.db"
-        private const val DATABASE_VERSION = 2
+        private const val DATABASE_VERSION = 3
         private const val TABLE_NAME = "Pemilih"
         private const val COLUMN_ID = "id"
         private const val COLUMN_NIK = "nik"
@@ -45,7 +45,7 @@ class PemilihDBHelper (context: Context): SQLiteOpenHelper(context, DATABASE_NAM
         onCreate(db)
     }
 
-    fun addPemilih(pemilih: Pemilih){
+    fun addPemilih(pemilih: Pemilih) {
         val db = writableDatabase
         val values = ContentValues().apply {
             put(COLUMN_NIK, pemilih.nik)
@@ -60,13 +60,13 @@ class PemilihDBHelper (context: Context): SQLiteOpenHelper(context, DATABASE_NAM
         db.close()
     }
 
-    fun viewPemilih(): List<Pemilih>{
+    fun viewPemilih(): List<Pemilih> {
         val db = readableDatabase
         val listPemilih = mutableListOf<Pemilih>()
         val query = "SELECT * FROM $TABLE_NAME"
         val cursor = db.rawQuery(query, null)
 
-        while (cursor.moveToNext()){
+        while (cursor.moveToNext()) {
             val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
             val nik = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NIK))
             val nama = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NAMA))
@@ -89,4 +89,5 @@ class PemilihDBHelper (context: Context): SQLiteOpenHelper(context, DATABASE_NAM
 
 
     }
+
 }

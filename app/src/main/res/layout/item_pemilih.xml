@@ -23,6 +23,23 @@
             android:layout_marginTop="8dp"
             >
 
+<!--            <ImageView-->
+<!--                android:id="@+id/editImageView"-->
+<!--                android:layout_width="24dp"-->
+<!--                android:layout_height="24dp"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:layout_marginEnd="30dp"-->
+<!--                android:src="@drawable/edit_vector"-->
+<!--                />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/deleteImageView"-->
+<!--                android:layout_width="24dp"-->
+<!--                android:layout_height="24dp"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:src="@drawable/delete_vector"-->
+<!--                />-->
+
             <TextView
                 android:id="@+id/namaTextView"
                 android:layout_width="wrap_content"
@@ -36,6 +53,15 @@
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/textViewNIK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="NIK"
+            android:fontFamily="@font/poppins"
+            android:textSize="24sp" />
+
+        <TextView
             android:id="@+id/nikTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,7 +69,17 @@
             android:fontFamily="@font/poppins"
             android:maxLines="3"
             android:layout_marginTop="8dp"
+            android:textSize="20sp"
             />
+        <TextView
+            android:id="@+id/textViewHP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Nomor HP"
+            android:fontFamily="@font/poppins"
+            android:textSize="24sp" />
+
         <TextView
             android:id="@+id/noHpTextView"
             android:layout_width="wrap_content"
@@ -52,7 +88,18 @@
             android:fontFamily="@font/poppins"
             android:maxLines="3"
             android:layout_marginTop="8dp"
+            android:textSize="20sp"
             />
+
+        <TextView
+            android:id="@+id/textViewJK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="JenisKelamin"
+            android:fontFamily="@font/poppins"
+            android:textSize="24sp" />
+
         <TextView
             android:id="@+id/jenisKelaminTextView"
             android:layout_width="wrap_content"
@@ -61,7 +108,18 @@
             android:fontFamily="@font/poppins"
             android:maxLines="3"
             android:layout_marginTop="8dp"
+            android:textSize="20sp"
             />
+
+        <TextView
+            android:id="@+id/textViewTglLahir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Tanggal Lahir"
+            android:fontFamily="@font/poppins"
+            android:textSize="24sp" />
+
         <TextView
             android:id="@+id/tanggalTextView"
             android:layout_width="wrap_content"
@@ -70,7 +128,18 @@
             android:fontFamily="@font/poppins"
             android:maxLines="3"
             android:layout_marginTop="8dp"
+            android:textSize="20sp"
             />
+
+        <TextView
+            android:id="@+id/textViewAlamat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Alamat"
+            android:fontFamily="@font/poppins"
+            android:textSize="24sp" />
+
         <TextView
             android:id="@+id/alamatTextView"
             android:layout_width="wrap_content"
@@ -79,6 +148,7 @@
             android:fontFamily="@font/poppins"
             android:maxLines="8"
             android:layout_marginTop="8dp"
+            android:textSize="20sp"
             />
 
         <ImageView

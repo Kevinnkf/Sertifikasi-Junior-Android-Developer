@@ -128,15 +128,6 @@
         </RadioGroup>
 
         <TextView
-            android:id="@+id/textViewTanggal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="Tempat Tanggal Lahir"
-            android:fontFamily="@font/poppins"
-            android:textSize="24sp" />
-
-        <TextView
             android:id="@+id/textViewTTL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

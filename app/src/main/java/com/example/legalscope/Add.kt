@@ -1,8 +1,6 @@
 package com.example.legalscope
 
 import android.Manifest
-import android.Manifest.permission.ACCESS_COARSE_LOCATION
-import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -13,6 +11,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.util.Log
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -33,8 +32,8 @@ class Add : AppCompatActivity() {
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
     companion object {
-        private const val IMAGE_REQUEST_CODE = 1000
-        private const val CAMERA_REQUEST_CODE = 1001
+        internal const val IMAGE_REQUEST_CODE = 1000
+        internal const val CAMERA_REQUEST_CODE = 1001
     }
 
     private var imageUri: Uri? = null // Nullable Uri to handle both image selection and capture
@@ -101,21 +100,21 @@ class Add : AppCompatActivity() {
             Toast.makeText(this, "Successfully saved new data pemilih", Toast.LENGTH_SHORT).show()
         }
 
-
-
         binding.checkLocationButton.setOnClickListener {
             getLocation()
-
         }
-
     }
-
 
     // Function to pick an image from the gallery
     private fun pickImageFromGallery() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
-        startActivityForResult(intent, IMAGE_REQUEST_CODE)
+        if (intent.resolveActivity(packageManager) != null) {
+            startActivityForResult(intent, IMAGE_REQUEST_CODE)
+        } else {
+            Toast.makeText(this, "No application available to pick images", Toast.LENGTH_SHORT)
+                .show()
+        }
     }
 
     // Function to capture an image using the camera
@@ -156,6 +155,9 @@ class Add : AppCompatActivity() {
             when (requestCode) {
                 IMAGE_REQUEST_CODE -> {
                     imageUri = data?.data
+                    Log.d("GalleryURI", "URI from gallery: $imageUri")
+
+                    // Set the image preview
                     binding.imagePreview.setImageURI(imageUri)
                 }
 
@@ -214,14 +216,14 @@ class Add : AppCompatActivity() {
 
     private fun getLocation() {
         //permission to access location
-        if (ActivityCompat.checkSelfPermission(this, ACCESS_FINE_LOCATION)
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
             != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
                 this,
-                ACCESS_COARSE_LOCATION
+                Manifest.permission.ACCESS_COARSE_LOCATION
             )
             != PackageManager.PERMISSION_GRANTED
         ) {
-            ActivityCompat.requestPermissions(this, arrayOf(ACCESS_FINE_LOCATION), 100)
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 100)
             return
         }
         // Create a location request

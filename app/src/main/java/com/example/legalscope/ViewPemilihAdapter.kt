@@ -1,9 +1,11 @@
 package com.example.legalscope
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -20,6 +22,7 @@ class viewPemilihAdapter(private var listPemilih: List<Pemilih>, private val con
         val tglView: TextView = itemView.findViewById(R.id.tanggalTextView)
         val alamatView: TextView = itemView.findViewById(R.id.alamatTextView)
         val imgView: ImageView = itemView.findViewById(R.id.gambarImageView)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PemilihViewHolder {
@@ -45,6 +48,8 @@ class viewPemilihAdapter(private var listPemilih: List<Pemilih>, private val con
         holder.jkView.text = pemilih.jenisKelamin
         holder.tglView.text = pemilih.tanggal
         holder.alamatView.text = pemilih.alamat
+
+
     }
 
     fun refreshData(newPemilih: List<Pemilih>) {

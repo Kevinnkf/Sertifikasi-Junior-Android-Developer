@@ -30,5 +30,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent);
         }
 
+        binding.accessInformasi.setOnClickListener(){
+            val intent = Intent(this, Informasi:: class.java)
+            startActivity(intent);
+        }
+
+        binding.keluar.setOnClickListener(){
+            finish();
+        }
     }
 }
